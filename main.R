@@ -1,9 +1,11 @@
+# depency management
+renv::restore(prompt = FALSE)
 # libraries
 library(rvest)
 library(readr)
 library(tibble)
 library(dplyr)
-
+# custom functions and options
 source("scripts/scrapers.R")
 options(scipen=99)
 
