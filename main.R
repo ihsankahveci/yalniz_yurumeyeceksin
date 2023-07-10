@@ -10,7 +10,7 @@ options(scipen=99)
 ## retrieve all URLs and create a data.frame
 main_url = "https://yalnizyurumeyeceksin.com/page/"
 links_df = tibble()
-for (page in 1:2){
+for (page in 1:70){
   url = paste0(main_url, page, "/")
   links = get_links(url)
   if(length(links) == 0) next
@@ -30,6 +30,6 @@ all_df = links_df |>
 
 ## data cleaning 
 final_df = all_df |> 
-  mutate(date = parse_date(test, format = "%B %d, %Y", locale = locale("tr")))
+  mutate(date = parse_date(date, format = "%B %d, %Y", locale = locale("tr")))
 
-write_csv("data/yalniz_yurumeyeceksin.csv")
+write_csv(final_df, "data/yalniz_yurumeyeceksin.csv")
